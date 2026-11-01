@@ -462,6 +462,135 @@ a { color: inherit; }
   .section__head { grid-template-columns: 1fr; }
 }
 
+/* Case studies */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.case-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 24px;
+  background: var(--tint);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.case-card:nth-child(2) { background: var(--sage); border-color: var(--sage); }
+.case-card:hover { transform: translateY(-4px); }
+
+.case-card__company {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.case-card:nth-child(2) .case-card__company { color: var(--ink); }
+
+.case-card__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.case-card__blurb { margin: 0; color: var(--muted); }
+.case-card:nth-child(2) .case-card__blurb { color: #3b4a28; }
+
+.case-card__stats {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  font-size: 0.92rem;
+}
+
+.case-card__stats strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  margin-right: 0.25rem;
+}
+
+.case-card__cta { margin-top: auto; padding-top: 1.25rem; font-weight: 500; }
+
+.post.post--case { max-width: 940px; }
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem 2rem;
+  margin: 0 0 2.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.case-meta dt {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.case-meta dd { margin: 0; }
+
+.stats--case { margin-bottom: 3rem; padding: 2rem; border-radius: 24px; background: var(--tint); }
+.post--case .post__body { max-width: 720px; }
+
+.case-embed__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  letter-spacing: -0.03em;
+  margin: 4rem 0 0.5rem;
+}
+
+.case-embed__note { color: var(--muted); margin: 0 0 1.5rem; }
+.case-embed__note a { color: var(--ink); }
+
+.case-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--tint);
+  border: 1px solid var(--line);
+}
+
+.case-embed::before {
+  content: "Loading the deck…";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.case-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+@media (max-width: 860px) {
+  .case-grid { grid-template-columns: 1fr; }
+  .case-meta { grid-template-columns: 1fr; }
+  .case-embed { aspect-ratio: 4 / 5; }
+}
+
 /* Blog post page */
 .post-page { background: var(--bg); color: var(--ink); }
 

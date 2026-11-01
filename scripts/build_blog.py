@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Regenerate the blog from _posts_src/. Run from anywhere: python3 scripts/build_blog.py
+"""Regenerate the blog and case studies. Run from anywhere: python3 scripts/build_blog.py
 
 Each post = an entry in _posts_src/posts.json + an HTML body fragment at _posts_src/<slug>.html.
-Outputs: blog/index.html, blog/<slug>/index.html, feed.xml, sitemap.xml, and the
-"Writing" teaser on the home page (between the BLOG:START / BLOG:END markers).
+Each case study = an entry in _cases_src/cases.json + a body fragment at _cases_src/<slug>.html.
+Outputs: blog/, work/, feed.xml, sitemap.xml, and the home page "Writing" and "Case studies"
+sections (between the BLOG / CASES START and END markers).
 """
 import json
 import re
@@ -18,6 +19,9 @@ SRC = ROOT / "_posts_src"
 TPL = ROOT / "_templates"
 SITE = "https://hilinlin.com"
 HOME_TEASER_COUNT = 3
+FIGMA_FILE = "https://www.figma.com/proto/HPcXXnqr8t4jGB4Sx4AUlT/Case-Studies"
+FIGMA_EMBED = "https://embed.figma.com/proto/HPcXXnqr8t4jGB4Sx4AUlT/Case-Studies"
+FIGMA_QS = "scaling=scale-down&content-scaling=fixed&page-id=0%3A1"
 
 
 def fill(template, values):
@@ -138,6 +142,65 @@ def build_home_teaser(posts):
     path.write_text(new, encoding="utf-8")
 
 
+def load_cases():
+    cases = json.loads((ROOT / "_cases_src" / "cases.json").read_text(encoding="utf-8"))
+    for c in cases:
+        if not (ROOT / "_cases_src" / f"{c['slug']}.html").exists():
+            raise SystemExit(f"missing body file _cases_src/{c['slug']}.html")
+    return cases
+
+
+def build_case(c):
+    meta = "\n".join(f"    <div><dt>{escape(k)}</dt><dd>{escape(v)}</dd></div>" for k, v in c["meta"])
+    stats = "\n".join(
+        f'    <div class="stat"><span class="stat__num">{escape(n)}</span><span class="stat__label">{escape(l)}</span></div>'
+        for n, l in c["stats"])
+    node = c["figma_node"]
+    html = fill((TPL / "case.html").read_text(encoding="utf-8"), {
+        "COMPANY": escape(c["company"]),
+        "TITLE": escape(c["title"]),
+        "DESC": escape(c["summary"], quote=True),
+        "URL": f"{SITE}/work/{c['slug']}/",
+        "META": meta,
+        "STATS": stats,
+        "BODY": (ROOT / "_cases_src" / f"{c['slug']}.html").read_text(encoding="utf-8").strip(),
+        "FIGMA_URL": escape(f"{FIGMA_FILE}?node-id={node}&{FIGMA_QS}", quote=True),
+        "EMBED_URL": escape(f"{FIGMA_EMBED}?node-id={node}&embed-host=share&{FIGMA_QS}", quote=True),
+    })
+    out = ROOT / "work" / c["slug"]
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "index.html").write_text(html, encoding="utf-8")
+
+
+def case_card(c):
+    stats = "".join(f"<li><strong>{escape(n)}</strong> {escape(l)}</li>" for n, l in c["stats"][:2])
+    return (f'        <a class="case-card" href="/work/{c["slug"]}/">\n'
+            f'          <span class="case-card__company">{escape(c["company"])}</span>\n'
+            f'          <h3 class="case-card__title">{escape(c["title"])}</h3>\n'
+            f'          <p class="case-card__blurb">{escape(c["blurb"])}</p>\n'
+            f'          <ul class="case-card__stats">{stats}</ul>\n'
+            f'          <span class="case-card__cta">Read the case study &rarr;</span>\n'
+            f'        </a>')
+
+
+def build_home_cases(cases):
+    path = ROOT / "index.html"
+    html = path.read_text(encoding="utf-8")
+    block = (
+        '<section id="case-studies" class="section">\n'
+        '    <div class="wrap">\n'
+        '      <p class="eyebrow">Case studies</p>\n'
+        '      <h2 class="section__title">Two products, from problem to launch.</h2>\n'
+        '      <div class="case-grid">\n' + "\n".join(case_card(c) for c in cases) + '\n      </div>\n'
+        '    </div>\n'
+        '  </section>')
+    new, n = re.subn(r"(<!-- CASES:START -->).*?(<!-- CASES:END -->)",
+                     lambda m: f"{m.group(1)}\n  {block}\n  {m.group(2)}", html, flags=re.S)
+    if n != 1:
+        raise SystemExit("index.html is missing the CASES:START / CASES:END markers")
+    path.write_text(new, encoding="utf-8")
+
+
 def build_feed(posts):
     items = []
     for p in posts:
@@ -161,8 +224,9 @@ def build_feed(posts):
     (ROOT / "feed.xml").write_text(feed, encoding="utf-8")
 
 
-def build_sitemap(posts):
-    urls = [f"{SITE}/", f"{SITE}/blog/"] + [f"{SITE}/blog/{p['slug']}/" for p in posts]
+def build_sitemap(posts, cases):
+    urls = ([f"{SITE}/", f"{SITE}/blog/"] + [f"{SITE}/work/{c['slug']}/" for c in cases]
+            + [f"{SITE}/blog/{p['slug']}/" for p in posts])
     body = "\n".join(f"  <url><loc>{u}</loc></url>" for u in urls)
     (ROOT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -184,9 +248,13 @@ def main():
     build_index(posts)
     remove_stale_post_dirs(posts)
     build_home_teaser(posts)
+    cases = load_cases()
+    for c in cases:
+        build_case(c)
+    build_home_cases(cases)
     build_feed(posts)
-    build_sitemap(posts)
-    print(f"Built {len(posts)} post(s).")
+    build_sitemap(posts, cases)
+    print(f"Built {len(posts)} post(s) and {len(cases)} case stud{'y' if len(cases) == 1 else 'ies'}.")
 
 
 if __name__ == "__main__":

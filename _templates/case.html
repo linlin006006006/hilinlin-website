@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>%%COMPANY%% %%TITLE%% — Linlin Liu</title>
+<meta name="description" content="%%DESC%%">
+<link rel="canonical" href="%%URL%%">
+<meta property="og:type" content="article">
+<meta property="og:title" content="%%COMPANY%% %%TITLE%% — case study">
+<meta property="og:description" content="%%DESC%%">
+<meta property="og:url" content="%%URL%%">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="Linlin Liu — Writing" href="/feed.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body class="post-page">
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/"><svg class="nav__mark" viewBox="395 155 414 592" aria-hidden="true"><path d="M407 183L518 167V568L741 535V637L463 678V238L574 221V601L797 567V679L407 735Z"/></svg><span>hilinlin</span></a>
+    <div class="nav__right">
+      <nav class="nav__links">
+        <a href="/#case-studies">Case studies</a>
+        <a href="/blog/">Writing</a>
+        <a href="/#background">Background</a>
+      </nav>
+      <a class="btn" href="/#contact">Say hello</a>
+    </div>
+  </div>
+</header>
+
+<main class="post post--case">
+  <a class="post__back" href="/#case-studies">&larr; All case studies</a>
+  <p class="eyebrow">Case study &middot; %%COMPANY%%</p>
+  <h1 class="post__title">%%TITLE%%</h1>
+  <dl class="case-meta">
+%%META%%
+  </dl>
+  <div class="stats stats--case">
+%%STATS%%
+  </div>
+  <div class="post__body">
+%%BODY%%
+  </div>
+
+  <h2 class="case-embed__title">The full story</h2>
+  <p class="case-embed__note">The complete case study deck, as I present it. Use the arrows to move through it, or <a href="%%FIGMA_URL%%" target="_blank" rel="noopener">open it in Figma</a>.</p>
+  <div class="case-embed">
+    <iframe src="%%EMBED_URL%%" title="%%COMPANY%% %%TITLE%% case study deck" loading="lazy" allowfullscreen></iframe>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>&copy; <span id="year"></span> Linlin Liu</p>
+    <p><a href="/feed.xml">RSS</a></p>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>
