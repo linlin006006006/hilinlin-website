@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "what-counts-as-normal-for-your-menstrual-cycle",
+    "title": "What counts as “normal” for your menstrual cycle?",
+    "date": "2026-10-28",
+    "summary": "Almost every woman I've talked to about their period-related issues said, “I just thought that's normal.” So what defines “normal”?",
+    "linkedin_url": "https://www.linkedin.com/pulse/what-counts-normal-your-menstrual-cycle-linlin-liu-bdbac/",
+    "tags": [
+      "Menstrual health"
+    ]
+  },
+  {
+    "slug": "femtech-explained",
+    "title": "Femtech, explained",
+    "date": "2026-09-20",
+    "summary": "After Fintech, Edtech, Biotech, Deeptech, and every other “XXtech” — it is time to welcome and embrace the Femtech era.",
+    "linkedin_url": "https://www.linkedin.com/pulse/femtech-explained-linlin-liu-kramc/",
+    "tags": [
+      "Femtech"
+    ],
+    "cover": {
+      "src": "/assets/blog/femtech-explained-cover.png",
+      "alt": "Femtech, explained",
+      "caption": "Image was a collaboration between me and AI"
+    }
+  },
+  {
+    "slug": "why-employees-arent-using-ai-the-way-leadership-hoped",
+    "title": "Why Employees Aren't Using AI the Way Leadership Hoped: Three Things I've Observed",
+    "date": "2026-08-29",
+    "summary": "A story from a Berkeley Haas professor's research, and three patterns I've seen in how companies roll out AI.",
+    "linkedin_url": "https://www.linkedin.com/pulse/why-employees-arent-using-ai-way-leadership-hoped-three-linlin-liu-c4dtc",
+    "tags": [
+      "AI at work"
+    ],
+    "cover": {
+      "src": "/assets/blog/ai-adoption-cover.png",
+      "alt": "Why Employees Aren't Using AI the Way Leadership Hoped: Three Things I've Observed",
+      "caption": "I wrote the content, Claude made the banner"
+    }
+  }
+]

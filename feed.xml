@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Linlin Liu — Writing</title>
+    <link>https://hilinlin.com/blog/</link>
+    <description>Essays on femtech, women's health, and how products get built.</description>
+    <item>
+      <title>What counts as “normal” for your menstrual cycle?</title>
+      <link>https://hilinlin.com/blog/what-counts-as-normal-for-your-menstrual-cycle/</link>
+      <guid isPermaLink="true">https://hilinlin.com/blog/what-counts-as-normal-for-your-menstrual-cycle/</guid>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Almost every woman I&#x27;ve talked to about their period-related issues said, “I just thought that&#x27;s normal.” So what defines “normal”?</description>
+    </item>
+    <item>
+      <title>Femtech, explained</title>
+      <link>https://hilinlin.com/blog/femtech-explained/</link>
+      <guid isPermaLink="true">https://hilinlin.com/blog/femtech-explained/</guid>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 +0000</pubDate>
+      <description>After Fintech, Edtech, Biotech, Deeptech, and every other “XXtech” — it is time to welcome and embrace the Femtech era.</description>
+    </item>
+    <item>
+      <title>Why Employees Aren&#x27;t Using AI the Way Leadership Hoped: Three Things I&#x27;ve Observed</title>
+      <link>https://hilinlin.com/blog/why-employees-arent-using-ai-the-way-leadership-hoped/</link>
+      <guid isPermaLink="true">https://hilinlin.com/blog/why-employees-arent-using-ai-the-way-leadership-hoped/</guid>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+      <description>A story from a Berkeley Haas professor&#x27;s research, and three patterns I&#x27;ve seen in how companies roll out AI.</description>
+    </item>
+  </channel>
+</rss>
