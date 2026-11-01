@@ -356,7 +356,7 @@ a { color: inherit; }
   width: auto;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.8px;
+  stroke-width: 1px;
   stroke-linejoin: round;
   stroke-linecap: round;
   overflow: visible;
@@ -446,21 +446,6 @@ a { color: inherit; }
 .section--sage::before { width: clamp(180px, 28vw, 380px); aspect-ratio: 1; right: -6%; bottom: -30%; border-radius: 62% 38% 55% 45% / 50% 58% 42% 50%; }
 .section--sage::after { width: clamp(24px, 3vw, 44px); aspect-ratio: 1; right: 30%; top: 14%; opacity: 0.8; }
 
-.section__head {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, 480px);
-  gap: 2rem 3rem;
-  align-items: end;
-  margin-bottom: 3rem;
-}
-
-.section__head .section__title { margin-bottom: 0; }
-
-.section__art { display: block; width: 100%; height: auto; border-radius: 20px; }
-
-@media (max-width: 860px) {
-  .section__head { grid-template-columns: 1fr; }
-}
 
 /* Case studies */
 .case-grid {
@@ -561,11 +546,15 @@ a { color: inherit; }
 }
 
 .case-embed__note { color: var(--muted); margin: 0 0 1.5rem; }
+.case-embed__help { margin: 1rem 0 0; font-size: 0.85rem; color: var(--muted); text-align: center; }
+.case-embed__help a { color: var(--ink); }
 .case-embed__note a { color: var(--ink); }
 
 .case-embed {
   position: relative;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1240px, calc(100vw - 2 * var(--gutter)));
   aspect-ratio: 16 / 10;
   border-radius: 20px;
   overflow: hidden;
@@ -573,28 +562,16 @@ a { color: inherit; }
   border: 1px solid var(--line);
 }
 
-.case-embed__poster {
+.case-embed::before {
+  content: "Loading the case study…";
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  text-align: center;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
-.case-embed__label {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
-  letter-spacing: -0.03em;
-}
-
-.case-embed__actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-
-button.btn { font-family: inherit; line-height: inherit; cursor: pointer; }
 
 .case-embed iframe { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; border: 0; background: #fff; }
 
@@ -678,4 +655,14 @@ button.btn { font-family: inherit; line-height: inherit; cursor: pointer; }
 
 @media (max-width: 640px) {
   .nav__links { display: none; }
+}
+
+/* Rising bubbles layer (drawn by script.js) */
+.bubbles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
 }

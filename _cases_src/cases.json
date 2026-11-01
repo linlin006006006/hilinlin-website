@@ -5,15 +5,36 @@
     "title": "Loyalty Program",
     "summary": "How I designed Daily Harvest's first rewards program to build a healthy-eating habit and lift retention.",
     "meta": [
-      ["Role", "Lead designer: app experience and program design"],
-      ["Timeline", "6 months, 2022"],
-      ["Focus", "User data and iteration, creative problem solving"]
+      [
+        "Role",
+        "Lead designer: app experience and program design"
+      ],
+      [
+        "Timeline",
+        "6 months, 2022"
+      ],
+      [
+        "Focus",
+        "User data and iteration, creative problem solving"
+      ]
     ],
     "stats": [
-      ["+9%", "third-box order rate"],
-      ["2.8x", "return on investment"],
-      ["+5%", "weekly app engagement"],
-      ["+6%", "net promoter score"]
+      [
+        "+26%",
+        "ordering rate at launch"
+      ],
+      [
+        "+42%",
+        "in-app engagement at launch"
+      ],
+      [
+        "+9%",
+        "third-box order rate, short term"
+      ],
+      [
+        "2.8x",
+        "return on investment, short term"
+      ]
     ],
     "blurb": "A rewards program that turns healthy eating into a habit, designed with data, tested with customers, and built with every team from engineering to supply chain.",
     "figma_node": "1-1167"
@@ -24,15 +45,36 @@
     "title": "Autoplay",
     "summary": "How I led Sonos's Autoplay strategy and used a cross-functional workshop to turn one-off partner builds into universal features.",
     "meta": [
-      ["Role", "Lead designer: UX strategy and app experience design"],
-      ["Timeline", "2 months, 2024"],
-      ["Focus", "Design leadership, UX process"]
+      [
+        "Role",
+        "Lead designer: UX strategy and app experience design"
+      ],
+      [
+        "Timeline",
+        "2 months, 2024"
+      ],
+      [
+        "Focus",
+        "Design leadership, UX process"
+      ]
     ],
     "stats": [
-      ["150+", "music services on one universal feature"],
-      ["16", "stakeholders in one workshop"],
-      ["90 min", "workshop, down from three days"],
-      ["10+", "rounds of review to get it right"]
+      [
+        "150+",
+        "music services on one universal feature"
+      ],
+      [
+        "16",
+        "stakeholders in one workshop"
+      ],
+      [
+        "90 min",
+        "workshop, down from three days"
+      ],
+      [
+        "10+",
+        "rounds of review to get it right"
+      ]
     ],
     "blurb": "A workshop that moved Sonos from building one solution per partner to universal solutions for every partner, and the Autoplay strategy that came out of it.",
     "figma_node": "2-3765"
