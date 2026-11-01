@@ -69,9 +69,10 @@ def build_post(p):
         caption = f'\n      <figcaption>{escape(c["caption"])}</figcaption>' if c.get("caption") else ""
         cover_html = (f'<figure class="post__cover">\n      <img src="{escape(c["src"], quote=True)}" '
                       f'alt="{escape(c.get("alt", ""), quote=True)}">{caption}\n    </figure>')
-        og_image = (f'<meta property="og:image" content="{SITE}{escape(c["src"], quote=True)}">\n'
+        og_src = c.get("og", c["src"])
+        og_image = (f'<meta property="og:image" content="{SITE}{escape(og_src, quote=True)}">\n'
                     '<meta name="twitter:card" content="summary_large_image">')
-        jsonld["image"] = SITE + c["src"]
+        jsonld["image"] = SITE + og_src
     else:
         og_image = '<meta name="twitter:card" content="summary">'
     html = fill((TPL / "post.html").read_text(encoding="utf-8"), {
@@ -116,10 +117,13 @@ def build_home_teaser(posts):
     if posts:
         items = "\n".join(list_item(p) for p in posts[:HOME_TEASER_COUNT])
         block = (
-            '<section id="writing" class="section">\n'
+            '<section id="writing" class="section section--tint">\n'
             '    <div class="wrap">\n'
             '      <p class="eyebrow">Writing</p>\n'
-            '      <h2 class="section__title">Thinking out loud.</h2>\n'
+            '      <div class="section__head">\n'
+            '        <h2 class="section__title">Thinking out loud.</h2>\n'
+            '        <img class="section__art" src="/assets/blog/menstrual-drops.png" alt="" width="1040" height="350">\n'
+            '      </div>\n'
             '      <ul class="post-list">\n' + items + '\n      </ul>\n'
             '      <p class="writing__all"><a class="btn btn--ghost" href="/blog/">All writing</a></p>\n'
             '    </div>\n'

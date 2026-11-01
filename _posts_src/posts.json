@@ -7,7 +7,13 @@
     "linkedin_url": "https://www.linkedin.com/pulse/what-counts-normal-your-menstrual-cycle-linlin-liu-bdbac/",
     "tags": [
       "Menstrual health"
-    ]
+    ],
+    "cover": {
+      "src": "/assets/blog/menstrual-drops.png",
+      "og": "/assets/blog/menstrual-cover.png",
+      "alt": "Twenty-one droplets in different shapes, sizes, and shades of rose",
+      "caption": ""
+    }
   },
   {
     "slug": "femtech-explained",

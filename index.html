@@ -10,7 +10,10 @@
 <meta property="og:title" content="Linlin Liu — Femtech Builder">
 <meta property="og:description" content="Designing and building technology that takes women's health seriously.">
 <meta property="og:url" content="https://hilinlin.com/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="Linlin Liu — Writing" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,21 +37,35 @@
 </header>
 
 <main>
-  <section class="section section--dark hero">
+  <section class="section hero">
+    <svg class="hero__blobs" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path class="blob" d="M-10 -10L520 -10C545 70 470 130 390 152C300 176 250 150 170 192C100 228 40 300 -10 332Z"/>
+      <path class="blob" d="M930 -10L1210 -10L1210 118C1150 150 1090 102 1040 72C1000 48 962 40 930 -10Z"/>
+      <path class="blob" d="M640 712C690 602 800 572 900 592C980 608 1010 652 1060 672C1100 688 1150 692 1210 682L1210 712Z"/>
+      <circle class="dot" cx="1100" cy="52" r="16"/>
+      <circle class="dot" cx="868" cy="40" r="8"/>
+      <circle class="dot" cx="1146" cy="628" r="18"/>
+      <circle class="dot" cx="64" cy="548" r="6"/>
+      <circle class="dot" cx="578" cy="96" r="5"/>
+      <circle class="dot" cx="1010" cy="506" r="9"/>
+      <circle class="dot" cx="312" cy="652" r="7"/>
+    </svg>
     <div class="wrap">
-      <svg class="hero__mark" viewBox="390 115 590 640" fill="none" aria-hidden="true">
+      <div class="hero__grid">
+        <h1 class="hero__title">Femtech<br>builder.</h1>
+        <div class="hero__side">
+          <svg class="hero__mark" viewBox="390 115 590 640" fill="none" aria-hidden="true">
           <path class="hero__mark-line" d="M407 183L518 167V568L741 535V637L463 678V238L574 221V601L797 567V679L407 735Z" stroke="currentColor" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
           <path class="hero__spark" d="M891 127Q896 156 925 161Q896 166 891 195Q886 166 857 161Q886 156 891 127Z" fill="currentColor"/>
           <path class="hero__spark hero__spark--sm" d="M944 174Q946.5 188.5 961 191Q946.5 193.5 944 208Q941.5 193.5 927 191Q941.5 188.5 944 174Z" fill="currentColor"/>
         </svg>
-      <h1 class="hero__title">Femtech<br>builder.</h1>
-      <div class="hero__row">
-        <p class="hero__name">Linlin Liu &middot; Bay Area</p>
-        <p class="hero__lead">I design and build technology that takes women's health seriously, and write about what it takes to get it right.</p>
-        <div class="hero__actions">
+          <p class="hero__lead">I design and build technology that takes women's health seriously, and write about what it takes to get it right.</p>
+          <div class="hero__actions">
           <a class="btn" href="/blog/">Read my writing</a>
           <a class="btn" href="#contact">Say hello</a>
         </div>
+        </div>
+        <p class="hero__name">Linlin Liu &middot; Bay Area</p>
       </div>
     </div>
   </section>
@@ -78,10 +95,13 @@
   </section>
 
   <!-- BLOG:START -->
-  <section id="writing" class="section">
+  <section id="writing" class="section section--tint">
     <div class="wrap">
       <p class="eyebrow">Writing</p>
-      <h2 class="section__title">Thinking out loud.</h2>
+      <div class="section__head">
+        <h2 class="section__title">Thinking out loud.</h2>
+        <img class="section__art" src="/assets/blog/menstrual-drops.png" alt="" width="1040" height="350">
+      </div>
       <ul class="post-list">
     <li class="post-list__item">
       <a href="/blog/what-counts-as-normal-for-your-menstrual-cycle/">
@@ -151,7 +171,7 @@
     </div>
   </section>
 
-  <section id="background" class="section">
+  <section id="background" class="section section--tint">
     <div class="wrap">
       <p class="eyebrow">Background</p>
       <h2 class="section__title">Nine years in product design, now an MBA at Haas.</h2>
@@ -175,7 +195,7 @@
     </div>
   </section>
 
-  <section id="contact" class="section section--dark">
+  <section id="contact" class="section section--sage">
     <div class="wrap">
       <svg class="contact__mark" viewBox="390 115 590 640" fill="none" aria-hidden="true"><path d="M407 183L518 167V568L741 535V637L463 678V238L574 221V601L797 567V679L407 735Z" stroke="currentColor" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/></svg>
       <p class="eyebrow">Contact</p>
@@ -188,7 +208,7 @@
   </section>
 </main>
 
-<footer class="footer section--dark">
+<footer class="footer">
   <div class="wrap">
     <p>&copy; <span id="year"></span> Linlin Liu</p>
     <p><a href="/feed.xml">RSS</a></p>
