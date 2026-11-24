@@ -628,11 +628,13 @@ a { color: inherit; }
 .post__body ul { margin: 0 0 1.4rem; padding-left: 1.3rem; }
 .post__body li { margin-bottom: 0.6rem; }
 .post__body hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0 1.8rem; }
-.post__body hr + p { font-size: 0.9rem; line-height: 1.6; color: var(--muted); overflow-wrap: anywhere; }
+.post__body hr:not(.break) + p { font-size: 0.9rem; line-height: 1.6; color: var(--muted); overflow-wrap: anywhere; }
 .post__body ul.arrows { list-style: none; padding-left: 0; }
 .post__body ul.arrows li { position: relative; padding-left: 1.7rem; }
 .post__body ul.arrows li::before { content: "→"; position: absolute; left: 0; }
 .post__body a { text-underline-offset: 0.15em; }
+.post__body h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.4; margin: 2rem 0 0.6rem; }
+.post__body blockquote { margin: 0 0 1.4rem; padding: 0.9rem 1.2rem; border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--line) 35%, transparent); }
 .post__body img { max-width: 100%; height: auto; }
 .post__figure { margin: 2.5rem 0; }
 .post__figure img { display: block; width: 100%; height: auto; border-radius: 14px; }
